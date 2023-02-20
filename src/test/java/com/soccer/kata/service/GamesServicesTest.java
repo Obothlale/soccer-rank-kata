@@ -42,11 +42,8 @@ public class GamesServicesTest {
         String[] splitInput = input.split("\n");
 
         String actual = "";
-
         for(String val: splitInput){
             actual = gamesServices.rank(val);
-            System.out.println(actual);
-            System.out.println("=================");
         }
 
         String expected = "1. Tarantulas, 6 pts\n" +

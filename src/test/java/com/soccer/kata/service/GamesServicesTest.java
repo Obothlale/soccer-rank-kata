@@ -15,13 +15,39 @@ public class GamesServicesTest {
     }
 
     @Test
-    public void testGamesServiceSingleInput(){
+    public void testGamesServiceMultipleLineInput(){
         String input = "Lions 3, Snakes 3\n" +
                 "Tarantulas 1, FC Awesome 0\n" +
                 "Lions 1, FC Awesome 1\n" +
                 "Tarantulas 3, Snakes 1\n" +
-                "Lions 4, Grouches 0\n";
+                "Lions 4, Grouches 0";
         String actual = gamesServices.rank(input);
+
+        String expected = "1. Tarantulas, 6 pts\n" +
+                "2. Lions, 5 pts\n" +
+                "3. FC Awesome, 1 pt\n" +
+                "3. Snakes, 1 pt\n" +
+                "5. Grouches, 0 pts";
+        Assertions.assertEquals(expected,actual);
+
+    }
+
+    @Test
+    public void testGamesServiceLoopSingleLineInput(){
+        String input = "Lions 3, Snakes 3\n" +
+                "Tarantulas 1, FC Awesome 0\n" +
+                "Lions 1, FC Awesome 1\n" +
+                "Tarantulas 3, Snakes 1\n" +
+                "Lions 4, Grouches 0";
+        String[] splitInput = input.split("\n");
+
+        String actual = "";
+
+        for(String val: splitInput){
+            actual = gamesServices.rank(val);
+            System.out.println(actual);
+            System.out.println("=================");
+        }
 
         String expected = "1. Tarantulas, 6 pts\n" +
                 "2. Lions, 5 pts\n" +

@@ -18,11 +18,10 @@ public class Application {
             Scanner scanner = new Scanner(fileReader);
             String input = getInput(scanner);
             GamesServices gamesServices = new GamesServicesImpl();
-            String rank = gamesServices.rank(input);
-            System.out.println(rank);
+            System.out.println("\n"+gamesServices.rank(input));
             fileReader.close();
-        } catch (Exception fileNotFoundException) {
-            System.err.println("Unable to read file:" + args[0] + "\n With Exception:\n" + fileNotFoundException.getCause());
+        } catch (Exception exception) {
+            throw new RuntimeException("Unable to read file: " + args[0], exception);
         }
     }
 

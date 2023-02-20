@@ -8,6 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <!--This is a none Spring Boot application but leveraging maven plugin versions from spring-boot-starter-parent-->
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
@@ -28,7 +29,6 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 
     <build>
         <plugins>
